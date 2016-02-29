@@ -4,22 +4,43 @@
 ##Two Hashes = stuff to update
 # One Hash = is just a note on what the code does
 
-##Top Priorities: Host on GitHub
 ##Make iPython Notebook out of this code
+## Numpy, SCipy Etc.
+##Connect github and ipython
 ##import panda and put ZoneTax into a dataframe
 ##import Sea and visualize the data via graph
 
 ##add exception handling to all datafields
 
-##Need to get ZoneTax into actual Useable Dicitonary Data
-#####################################################
-
-import csv
-ZoneTax = csv.DictReader(open('NYC_ZoningTaxLotDB_201601.csv'))
-#####################################################
+##Need to get ZoneTax into actual Useable Dictionary Data
 ##Figure out what to do about the 4 different zoning designations
 ##Special Districts
 ##limited Height Districts --- Probably just filter these out
+#####################################################
+import os
+import math
+from random import randint
+import sys
+import numpy as np
+import scipy
+import pylab
+import sympy
+import pytest
+import pandas as pd
+import seaborn as sns
+# %matplotlib inline # IPython magic to create plots within cells
+import csv
+#####################################################
+ZoneTax = csv.DictReader(open('NYC_ZoningTaxLotDB_201601.csv'))
+#####################################################
+# ##Dummy DataSet need to add real dataSet
+# Lots = [
+# 	{'Zoning District 1': 'R4B', 'Borough Code' : '1','Tax Block':'3','Tax Lot':'3'},
+# 	{'Zoning District 1': 'R7-3', 'Borough Code' : '2','Tax Block':'5','Tax Lot':'4'},
+# 	{'Zoning District 1': 'R4A', 'Borough Code' : '3','Tax Block':'6','Tax Lot':'5'},
+# 	{'Zoning District 1': 'C9', 'Borough Code' : '4','Tax Block':'5','Tax Lot':'3'}
+# 	]
+#####################################################
 #####################################################
 #New DICT per borough
 Mn = [row for row in ZoneTax if row['Borough Code'] == '1']
@@ -30,18 +51,20 @@ Si = [row for row in ZoneTax if row['Borough Code'] == '5']
 # print(Mn)
 Lots = Mn
 
-from random import randint
-print(randint(0,9))
 
 
 
-# ##Dummy DataSet need to add real dataSet
-# Lots = [
-# 	{'Zoning District 1': 'R4B', 'Borough Code' : '1','Tax Block':'3','Tax Lot':'3'},
-# 	{'Zoning District 1': 'R7-3', 'Borough Code' : '2','Tax Block':'5','Tax Lot':'4'},
-# 	{'Zoning District 1': 'R4A', 'Borough Code' : '3','Tax Block':'6','Tax Lot':'5'},
-# 	{'Zoning District 1': 'C9', 'Borough Code' : '4','Tax Block':'5','Tax Lot':'3'}
-# 	]
+df = pd.DataFrame(Lots)
+df1 = pd.DataFrame({ 'A' : 1.,
+                    'B' : pd.Timestamp('20130102'),
+                    'C' : pd.Series(1, index=list(range(4)), dtype='float32'),
+                    'D' : pd.Series([1, 2, 1, 2], dtype='int32'),
+                    'E' : pd.Categorical(["test", "train", "test", "train"]),
+                    'F' : 'foo' })
+print df
+print df1
+
+
 
 ####################################################
 #VARIABLES WE HAVE NOT GOT YET
@@ -342,9 +365,9 @@ for x in ResiLots:
 	getPpSQFT(x)
 	getRoof_PpSQFT(x)
 
-print(ResiLots)
-print("The Number of Units Filtered is :" )
-print( len(ResiLots))
+# print(ResiLots)
+# print("The Number of Units Filtered is :" )
+# print( len(ResiLots))
 
 
 

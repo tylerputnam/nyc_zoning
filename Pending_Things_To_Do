@@ -1,0 +1,114 @@
+
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+# DATA we need:
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+# ------------------------------------------------
+# ZONING
+# ------------------------------------------------
+#	 Building Height
+	#	Bobby got this form some Data Base?
+#	 Zoning Height
+	#	Unclear if this actually exists in NYC????????
+#Unclear that this is data we can get?????????
+#	 Air rights and # Air rights Height
+#	Roof Rights
+#	 BuildingFootprint area
+#	 	We can get the associated shape file, and maybe append the area to the dataset
+#Unclear if this is data we need
+#	 OSR (open space ratio)
+#	 Building set backs (Height factor districis is controlled by sky exposure planes, in contextual districts by specified distances from street walls)
+#	 SETBACKS (maybe we dont need this since this is not new construction)
+#	 LotCoverage
+#	 LotDepth
+#	 LotWidth
+
+
+# Buildable Zoning Height?
+# GrossFloorArea
+# LotArea - possibly calculated by GIS???????
+# Price per SQFT = Valuation of the entire building / PPSQFT
+# Gross Built Floor Area
+# Unused Development Rights
+# Condo -- TaxLot
+# Co-Op -- TaxLot
+
+# Landmark Building
+# Landmark Interior
+# Historic District
+# Scenic Landmark District
+
+
+# water tower, if water tower (or other mechanical equipment) has been removed
+# --------------------------------------------------------------------------------------------------------------
+# Currently Being Mined:
+# Lot, block # etc
+# Zoning districts
+# --------------------------------------------------------------------------------------------------------------
+# Currently Being Calculated as opposed to mined:
+#	 Maximum permitted Floor Area by FAR
+# 	FAR -- We can calculate this
+# 	FAR_Unused
+# 	UnusedSQFT
+# --------------------------------------------------------------------------------------------------------------
+
+
+#-----------------------------------------------------------------------------------------------------------------
+# Sources of DATA Include:
+# ACRIS -
+# 	What data do they have?
+# 	Will Have to be mined
+# 	API Limits?
+# NYC.GOV
+# 	DOB-
+# 		Borough Code,Tax Block,Tax Lot,Zoning District 1,Zoning District 2,Zoning District 3,Zoning District 4,Commercial Overlay 1,Commercial Overlay 2,Special District 1,Special District 2,Limited Height District,Zoning Map Number,Zoning Map Code
+# 	DOF-
+# 		Property Valuation and assessment Data Tax class
+# 			Boundaries (boundaries are identified by Hook symbols):
+# 				REUC
+# 				Easement
+# 		http://www1.nyc.gov/assets/finance/downloads/pdf/rolling_sales/rollingsales_manhattan.pdf
+# 			Sale Price of last year
+# 			land square feet
+# 			gross square feet
+# 			building class
+# 			apartment number
+# 			Building class category
+# Real estate database -
+# 	What Data do they have that would be useful?
+# Will Have to be mined
+# 	API Limits?
+# http://furmancenter.org/data
+# 	TDR and other transfer rights
+# ##########################################################################################
+# Ultimate Goal -
+# 	return properties that have enough FAR with highest value per sqft.
+
+# ##########################################################################################
+
+# Sort data by highest index
+#
+# ResiLots == Lots[‘residential’] Filter this data set by residential zoned buildings.
+# split data set into:
+# Lots[FAR] == FAR of the lot (should be able to get this from one of the databases)
+# Lots[‘FAR.MAX’] will need air rights transferred over
+# Lots[‘PPSQFT’] == typical apartment price / sqft of apartment
+# FARSQFT_Price_Ratio == Lots[FAR]  x lots[‘PPSQFT’]
+# return Lots[‘FAR’]<FARSQFT_Price_Ratio = which is not maxed out -- above X sqft left over
+
+# RoofSQFT
+# Buildable RoofSQFT = RoofSQFT - set backs, if [‘landmarks’] == true then subtract view shed
+
+# RoofPPSQFT == top floor apartmentPPSQFT / 2
+
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+
+
+
+
+
+

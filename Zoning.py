@@ -9,6 +9,11 @@
 ##Connect github and ipython
 ##import panda and put ZoneTax into a dataframe
 ##import Sea and visualize the data via graph
+## This guy built a custom Pluto Downloader:
+## https://github.com/chriswhong/plutoplus
+##http://chriswhong.com/open-data/building-a-custom-downloader-for-nycs-pluto-data/
+##http://chriswhong.github.io/plutoplus/#
+##We could build one and have a direct link running in real time?
 
 ##add exception handling to all datafields
 
@@ -17,10 +22,10 @@
 ##Special Districts
 ##limited Height Districts --- Probably just filter these out
 #####################################################
-import os
-import math
+# import os
+# import math
 from random import randint
-import sys
+# import sys
 import numpy as np
 import scipy
 import pylab
@@ -33,7 +38,7 @@ import csv
 #####################################################
 ZoneTax = csv.DictReader(open('NYC_ZoningTaxLotDB_201601.csv'))
 #####################################################
-# ##Dummy DataSet need to add real dataSet
+###Dummy DataSet need to add real dataSet
 # Lots = [
 # 	{'Zoning District 1': 'R4B', 'Borough Code' : '1','Tax Block':'3','Tax Lot':'3'},
 # 	{'Zoning District 1': 'R7-3', 'Borough Code' : '2','Tax Block':'5','Tax Lot':'4'},
@@ -41,6 +46,52 @@ ZoneTax = csv.DictReader(open('NYC_ZoningTaxLotDB_201601.csv'))
 # 	{'Zoning District 1': 'C9', 'Borough Code' : '4','Tax Block':'5','Tax Lot':'3'}
 # 	]
 #####################################################
+##Unfortunately it does not look like I can steal the URL to download this CSV....
+# the_geom
+# address
+# allzoning1
+# allzoning2
+# assessland
+# assesstot
+# bbl
+# bldgarea
+# bldgclass
+# bldgdepth
+# bldgfront
+# block
+# borocode
+# builtcode
+# builtfar
+# firecomp
+# histdist
+# landmark
+# lot
+# lotarea
+# lotdepth
+# lotfront
+# lottype
+# ltdheight
+# numbldgs
+# numfloors
+# overlay1
+# overlay2
+# ownername
+# ownertype
+# resarea
+# residfar
+# retailarea
+# sanborn
+# spdist1
+# spdist2
+# unitsres
+# unitstotal
+# xcoord
+# ycoord
+# yearbuilt
+# zonedist1
+# zonedist2
+# zonedist3
+# zonedist4
 #####################################################
 #New DICT per borough
 Mn = [row for row in ZoneTax if row['Borough Code'] == '1']
